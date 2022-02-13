@@ -264,3 +264,7 @@ footer {
 #modal div a:active svg path {
     fill: #eee;
 }
+
+#modal_end {
+    display: none;
+}

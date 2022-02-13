@@ -21,8 +21,13 @@ class TicTacToe {
         this.main  = document.getElementsByTagName('main')[0];
         this.buildGrid();
         this.board = new Board();
+
         document.querySelectorAll('#modal_start a').forEach(a => {
             a.addEventListener('click', this.newGame.bind(this), {once:true});
+        });
+
+        document.getElementById('play_again').addEventListener('click', (e) => {
+            location.reload();
         });
     }
 
@@ -32,7 +37,6 @@ class TicTacToe {
 
     userMove(e) {
         if (!this.locked) {
-            this.board.plays++;
             this.lock();
 
             const index = parseInt(e.target.id.replace('box_', ''));
@@ -48,41 +52,54 @@ class TicTacToe {
             } else {
                 this.aiMove();
             }
+
+            this.board.plays++;
         }
     }
 
     aiMove() {
-        this.board.plays++;
-
         const move = this.ai.getBestMove(this.board, (this.ai.symbol === 'x'));
 
-        this.board.insert(this.ai.symbol, move);
+        //TODO this is ugly
 
-        console.log(move);
-
-        const div = document.getElementById('box_' + move.toString());
-        div.innerHTML = this.mark(this.ai.symbol);
-        div.classList.add('played');
-
-        const result = this.board.checkBoard();
-
-        if (result) {
-            this.gameOver(result);
-        } else {
-            this.userGo();
+        const sleep = (ms) => {
+            return new Promise(resolve => setTimeout(resolve, ms));
         }
+
+        (async () => {
+            await sleep(500);
+            this.board.insert(this.ai.symbol, move);
+
+            const div = document.getElementById('box_' + move.toString());
+            div.innerHTML = this.mark(this.ai.symbol);
+            div.classList.add('played');
+
+            const result = this.board.checkBoard();
+
+            if (result) {
+                this.gameOver(result);
+            } else {
+                this.userGo();
+            }
+        })();
+
+        //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^//
+
+        this.board.plays++;
     }
 
     newGame(e) {
         e.preventDefault();
 
+        const depth = parseInt(document.getElementById('ai_depth').value);
+
         if (e.currentTarget.id === 'select_x') {
             this.user = new User('x');
-            this.ai   = new Ai('o');
+            this.ai   = new Ai('o', depth);
             this.userGo();
         } else {
             this.user = new User('o');
-            this.ai   = new Ai('x');
+            this.ai   = new Ai('x', depth);
             this.aiMove();
         }
 
@@ -104,7 +121,20 @@ class TicTacToe {
             }
         }
 
-        // Display Results
+
+        //TODO this is ugly
+
+        const sleep = (ms) => {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        (async () => {
+            await sleep(500);
+            this.openModal('modal_end');
+        })();
+
+        //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^//
+
     }
 
     buildGrid() {

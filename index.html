@@ -29,14 +29,16 @@
                Modal
         <--- ------------ -->
         <div id="modal">
+
             <div id="modal_start">
                 <h3>New Game</h3>
                 <div>
                     <label for="ai_depth">AI Difficulty</label>
                     <select id="ai_depth">
-                        <option value="0">Easy</option>
-                        <option value="1">Hard</option>
-                        <option value="2">Brutal</option>
+                        <option value="1">Easy</option>
+                        <option value="2">Medium</option>
+                        <option value="3">Hard</option>
+                        <option value="-1">Brutal</option>
                     </select>
                 </div>
                 <div>
@@ -53,6 +55,11 @@
                         Goes Second
                     </a>
                 </div>
+            </div>
+
+            <div id="modal_end">
+                <h3>Game Over</h3>
+                <button id="play_again" type="button">Play Again</button>
             </div>
         </div>
     </body>

@@ -20,9 +20,9 @@ class Ai {
 
         if(board.checkBoard() || depth === this.max_depth ) {
             switch (true) {
-                case (board.checkBoard().symbol === 'x'):
+                case (board.checkBoard()['symbol'] === 'x'):
                     return 100 - depth;
-                case (board.checkBoard().symbol === 'o'):
+                case (board.checkBoard()['symbol'] === 'o'):
                     return -100 + depth;
                 default:
                     return 0;
