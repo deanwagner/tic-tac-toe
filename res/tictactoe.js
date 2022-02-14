@@ -107,13 +107,13 @@ class TicTacToe {
     }
 
     gameOver(result) {
+        let sub;
         if (result.symbol === 't') {
             // Handle Tie
             this.user.tie();
+            sub = 'Tie Game';
         } else {
-
             let cls;
-            let sub;
             if (result.symbol === this.user.symbol) {
                 this.user.win();
                 cls = 'win';
@@ -123,11 +123,6 @@ class TicTacToe {
                 cls = 'loss';
                 sub = 'You Lost';
             }
-
-            document.querySelector('#modal_end h4').innerText = sub;
-            document.getElementById('user_wins').innerText = this.user.getWins();
-            document.getElementById('user_loss').innerText = this.user.getLoss();
-            document.getElementById('user_ties').innerText = this.user.getTies();
 
             const divs = this.main.getElementsByTagName('div');
             for (let i = 0; i < divs.length; i++) {
@@ -139,6 +134,11 @@ class TicTacToe {
                 }
             }
         }
+
+        document.querySelector('#modal_end h4').innerText = sub;
+        document.getElementById('user_wins').innerText = this.user.getWins();
+        document.getElementById('user_loss').innerText = this.user.getLoss();
+        document.getElementById('user_ties').innerText = this.user.getTies();
 
 
         //TODO this is ugly
