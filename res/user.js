@@ -4,14 +4,36 @@ class User {
 
     // Class Properties
     symbol;
-    name;
-    wins  = 0;
-    loss  = 0;
-    ties  = 0;
-    depth = 0;
+    wins = 0;
+    loss = 0;
+    ties = 0;
 
     constructor(symbol) {
         this.symbol = symbol;
+    }
+
+    win() {
+        this.wins++;
+    }
+
+    lose() {
+        this.loss++;
+    }
+
+    tie() {
+        this.ties++;
+    }
+
+    getWins() {
+        return this.wins.toLocaleString();
+    }
+
+    getLoss() {
+        return this.loss.toLocaleString();
+    }
+
+    getTies() {
+        return this.ties.toLocaleString();
     }
 }
 

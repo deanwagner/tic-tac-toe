@@ -51,6 +51,26 @@ select {
     padding: 0.5em;
 }
 
+button {
+    background-color: #333;
+    border: 1px solid #000;
+    border-radius: 0.5em;
+    box-shadow: 0.1em 0.1em 0.2em rgba(0,0,0,0.5);
+    color: #ccc;
+    cursor: pointer;
+    padding: 0.5em 1em;
+    width: 100%;
+}
+
+button:hover,
+button:focus,
+button:active {
+    background-color: #eee;
+    box-shadow: 0 0 0.2em #eee;
+    color: #333;
+    text-shadow: 0 0 0.2em #333;
+}
+
 header {
     align-items: center;
     display: flex;
@@ -226,7 +246,7 @@ footer {
     text-align: center;
 }
 
-#modal > div > div {
+#modal_start > div {
     align-items: center;
     display: flex;
     gap: 2em;
@@ -234,12 +254,12 @@ footer {
     padding: 1em;
 }
 
-#modal div a {
+#modal_start div a {
     display: block;
     text-align: center;
 }
 
-#modal svg {
+#modal_start svg {
     display: block;
     filter: drop-shadow(0.7vmin 0.7vmin 0.5vmin rgba(0,0,0,0.5));
     height: 15vmin;
@@ -248,23 +268,52 @@ footer {
     width: 15vmin;
 }
 
-#modal svg path {
+#modal_start svg path {
     fill: #ccc;
 }
 
-#modal div a:hover svg,
-#modal div a:focus svg,
-#modal div a:active svg {
+#modal_start div a:hover svg,
+#modal_start div a:focus svg,
+#modal_start div a:active svg {
     filter: drop-shadow(0 0 0.5vmin #eee);
     transform: scale(1.2);
 }
 
-#modal div a:hover svg path,
-#modal div a:focus svg path,
-#modal div a:active svg path {
+#modal_start div a:hover svg path,
+#modal_start div a:focus svg path,
+#modal_start div a:active svg path {
     fill: #eee;
 }
 
 #modal_end {
     display: none;
+}
+
+#modal_end h3 {
+    margin: 0 0 0.5rem;
+}
+
+#modal_end h4 {
+    margin: -0.5rem 0 0.5rem;
+    text-align: center;
+}
+
+#modal_end > div {
+    align-items: center;
+    display: flex;
+    gap: 1em;
+    justify-content: center;
+    margin: 0 0 0.5rem;
+}
+
+#modal_end > div > div {
+    font-size: 0.8em;
+    text-align: center;
+}
+
+#modal_end > div > div > span {
+    display: block;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
 }

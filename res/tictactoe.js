@@ -109,12 +109,31 @@ class TicTacToe {
     gameOver(result) {
         if (result.symbol === 't') {
             // Handle Tie
+            this.user.tie();
         } else {
+
+            let cls;
+            let sub;
+            if (result.symbol === this.user.symbol) {
+                this.user.win();
+                cls = 'win';
+                sub = 'You Won';
+            } else {
+                this.user.lose();
+                cls = 'loss';
+                sub = 'You Lost';
+            }
+
+            document.querySelector('#modal_end h4').innerText = sub;
+            document.getElementById('user_wins').innerText = this.user.getWins();
+            document.getElementById('user_loss').innerText = this.user.getLoss();
+            document.getElementById('user_ties').innerText = this.user.getTies();
+
             const divs = this.main.getElementsByTagName('div');
             for (let i = 0; i < divs.length; i++) {
                 const ids = divs[i].id.replace('box_', '');
                 if (result.streak.includes(ids)) {
-                    divs[i].classList.add((result.symbol === this.user.symbol) ? 'win' : 'loss');
+                    divs[i].classList.add(cls);
                 } else {
                     divs[i].classList.add('hide');
                 }
