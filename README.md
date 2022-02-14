@@ -28,5 +28,6 @@ The AI was created using the [Minimax Algorithm](https://en.wikipedia.org/wiki/M
 
 ### Scope Creep
 
+* Lifetime Win/Loss/Tie scores via `LocalStorage`
 * Responsive Design
 * PWA and A2HS support
