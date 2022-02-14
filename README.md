@@ -6,9 +6,7 @@ https://deanwagner.github.io/tic-tac-toe/
 
 ![Project Screenshot](https://deanwagner.github.io/tic-tac-toe/img/tictactoe-screenshot.png)
 
-This project was created for the [Tic Tac Toe assignment](https://www.theodinproject.com/paths/full-stack-javascript/courses/javascript/lessons/tic-tac-toe) as part of [The Odin Project](https://www.theodinproject.com) curriculum. I met all the assignment objectives, including adding the optional AI component.
-
-The AI was created using the [Minimax Algorithm](https://en.wikipedia.org/wiki/Minimax), which calculates and scores potential future moves and chooses the best move based on those scores.
+This project was created for the [Tic Tac Toe assignment](https://www.theodinproject.com/paths/full-stack-javascript/courses/javascript/lessons/tic-tac-toe) as part of [The Odin Project](https://www.theodinproject.com) curriculum. I met all the assignment objectives, including adding the optional AI component. The AI was created using the [Minimax Algorithm](https://en.wikipedia.org/wiki/Minimax), which calculates and scores potential future moves and chooses the best move based on those scores.
 
 ### Assets Supplied
 
