@@ -1,0 +1,28 @@
+{
+    "name"        : "Tic Tac Toe",
+    "short_name"  : "TicTacToe",
+    "description" : "A Tic Tac Toe Game with an AI Opponent",
+    "icons"       : [{
+        "src"   : "img/ttt.svg",
+        "type"  : "image/svg+xml",
+        "sizes" : "any"
+    }, {
+        "src"   : "img/ttt-192.png",
+        "type"  : "image/png",
+        "sizes" : "192x192"
+    }, {
+        "src"   : "img/ttt-512.png",
+        "type"  : "image/png",
+        "sizes" : "512x512"
+    }],
+    "start_url"        : "index.html",
+    "background_color" : "#666666",
+    "theme_color"      : "#333333",
+    "display"          : "standalone",
+    "scope"            : "/tic-tac-toe/",
+    "screenshots"      : [{
+        "src"   : "img/tictactoe-screenshot.png",
+        "type"  : "image/png",
+        "sizes" : "650x365"
+    }]
+}
