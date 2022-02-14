@@ -79,6 +79,22 @@ class Board {
         }
         return moves;
     }
+
+    /**
+     * Display Board in Console
+     */
+    logBoard() {
+        let a = [];
+        let b = 0;
+        for (let i = 0; i < 3; i++) {
+            for (let ii = 0; ii < 3; ii++) {
+                if (typeof a[i] === 'undefined') { a[i] = []; }
+                a[i][ii] = this.board[b];
+                b++;
+            }
+        }
+        console.table(a);
+    }
 }
 
 export default Board;

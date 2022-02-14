@@ -1,5 +1,15 @@
 "use strict";
 
+/**
+ * Human Player for {TicTacToe}
+ * @class
+ * @property {string} symbol  - x/o
+ * @property {object} storage - LocalStorage
+ * @property {number} wins    - User Wins
+ * @property {number} loss    - User Losses
+ * @property {number} ties    - User Ties
+ * @author Dean Wagner <info@deanwagner.net>
+ */
 class User {
 
     // Class Properties
@@ -9,7 +19,12 @@ class User {
     loss = 0;
     ties = 0;
 
-    constructor(symbol) {
+    /**
+     * Constructor
+     * @constructor
+     * @param {string} symbol - x/o
+     */
+    constructor(symbol = 'x') {
         this.symbol  = symbol;
         this.storage = window.localStorage;
 
@@ -21,6 +36,9 @@ class User {
         }
     }
 
+    /**
+     * Save Stats to LocalStorage
+     */
     save() {
         const stats = {
             wins : this.wins,
@@ -30,29 +48,50 @@ class User {
         this.storage.setItem('stats', JSON.stringify(stats));
     }
 
+    /**
+     * User Win
+     */
     win() {
         this.wins++;
         this.save();
     }
 
+    /**
+     * User Loss
+     */
     lose() {
         this.loss++;
         this.save();
     }
 
+    /**
+     * Tie Game
+     */
     tie() {
         this.ties++;
         this.save();
     }
 
+    /**
+     * Total Wins
+     * @returns {string} - wins
+     */
     getWins() {
         return this.wins.toLocaleString();
     }
 
+    /**
+     * Total Losses
+     * @returns {string} - losses
+     */
     getLoss() {
         return this.loss.toLocaleString();
     }
 
+    /**
+     * Total Ties
+     * @returns {string} - ties
+     */
     getTies() {
         return this.ties.toLocaleString();
     }
