@@ -154,7 +154,7 @@ main > div svg {
     transform: scale(0);
 }
 
-main > div.hide, main > div.hide *
+main > div.hide, main > div.hide *,
 main > div.played, main > div.played * {
     cursor: default;
 }
@@ -294,6 +294,7 @@ footer {
 }
 
 #modal_end h4 {
+    letter-spacing: 0.2em;
     margin: -0.5rem 0 0.5rem;
     text-align: center;
 }

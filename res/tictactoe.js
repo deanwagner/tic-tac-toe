@@ -111,11 +111,12 @@ class TicTacToe {
         this.board.plays++;
         const move = this.ai.getBestMove(this.board, (this.ai.symbol === 'x'));
         this.board.insert(this.ai.symbol, move);
+        const div  = document.getElementById('box_' + move.toString());
+        div.removeEventListener('click', this.userMove.bind(this));
 
         (async () => {
             await this.sleep(500);
 
-            const div = document.getElementById('box_' + move.toString());
             div.innerHTML = this.mark(this.ai.symbol);
             div.classList.add('played');
 
@@ -158,11 +159,13 @@ class TicTacToe {
      */
     gameOver(result) {
         const divs = this.main.getElementsByTagName('div');
+        let delay = 1000;
         let sub;
         if (result.symbol === 't') {
             // Handle Tie
             this.user.tie();
             sub = 'Tie Game';
+            delay = 400;
 
             for (let i = 0; i < divs.length; i++) {
                 divs[i].classList.add('hide');
@@ -195,7 +198,7 @@ class TicTacToe {
         document.getElementById('user_ties').innerText = this.user.getTies();
 
         (async () => {
-            await this.sleep(1000);
+            await this.sleep(delay);
             this.openModal('modal_end');
         })();
     }
