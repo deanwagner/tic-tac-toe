@@ -1,10 +1,10 @@
 <svg viewBox="0 0 512 512">
-  <defs>
-    <style>
-      path { fill: #666; }
-      @media (prefers-color-scheme: dark) { path { fill: #eee; } }
-      @media (prefers-color-scheme: light) { path { fill: #333; } }
-    </style>
-  </defs>
-  <path d="M498.5,328H356V183H498.5a13.5,13.5,0,0,0,0-27H356V13.5a13.5,13.5,0,0,0-27,0V156H184V13.5a13.5,13.5,0,0,0-27,0V156H13.5a13.5,13.5,0,0,0,0,27H157V328H13.5a13.5,13.5,0,0,0,0,27H157V498.5a13.5,13.5,0,0,0,27,0V355H329V498.5a13.5,13.5,0,0,0,27,0V355H498.5a13.5,13.5,0,0,0,0-27ZM184,328V183H329V328Z"/>
+    <defs>
+        <style>
+            path { fill: #666; }
+            @media (prefers-color-scheme: dark) { path { fill: #eee; } }
+            @media (prefers-color-scheme: light) { path { fill: #333; } }
+        </style>
+    </defs>
+    <path d="M498.5,328H356V183H498.5a13.5,13.5,0,0,0,0-27H356V13.5a13.5,13.5,0,0,0-27,0V156H184V13.5a13.5,13.5,0,0,0-27,0V156H13.5a13.5,13.5,0,0,0,0,27H157V328H13.5a13.5,13.5,0,0,0,0,27H157V498.5a13.5,13.5,0,0,0,27,0V355H329V498.5a13.5,13.5,0,0,0,27,0V355H498.5a13.5,13.5,0,0,0,0-27ZM184,328V183H329V328Z"/>
 </svg>
