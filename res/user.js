@@ -25,9 +25,12 @@ class User {
      * @param {string} symbol - x/o
      */
     constructor(symbol = 'x') {
-        this.symbol  = symbol;
+        this.symbol = symbol;
+
+        // LocalStorage
         this.storage = window.localStorage;
 
+        // Load History
         if (this.storage.hasOwnProperty('stats')) {
             const stats = JSON.parse(this.storage.getItem('stats'));
             this.wins = stats.wins;

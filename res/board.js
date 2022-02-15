@@ -1,5 +1,12 @@
 "use strict";
 
+/**
+ * Game Board for {TicTacToe}
+ * @property {number} size  - Board Size
+ * @property {number} plays - Number of Plays
+ * @property {array}  board - Board Array
+ * @author Dean Wagner <info@deanwagner.net>
+ */
 class Board {
 
     // Class Properties
@@ -7,10 +14,19 @@ class Board {
     plays = 0;
     board = [];
 
+    /**
+     * Constructor
+     * @constructor
+     * @param {array} board - Board Array
+     */
     constructor(board = ['', '', '', '', '', '', '', '', '']) {
         this.board = board;
     }
 
+    /**
+     * Check Board Status
+     * @returns {object|null} - Result Object
+     */
     checkBoard() {
         switch (true) {
             // Row 1
@@ -51,14 +67,13 @@ class Board {
     }
 
     /**
-     * Inserts a new symbol(x,o) into
+     * Insert a new symbol (x/o) into Board
      * @param {string} symbol - x/o
      * @param {number} index - Slot Position
-     * @return {boolean} - boolean represent success of the operation
+     * @return {boolean} - success/fail
      */
     insert(symbol, index) {
         if(index >= this.size || this.board[index] !== '') {
-            // Cell is either occupied or does not exist
             return false;
         } else {
             this.board[index] = symbol;
@@ -67,7 +82,7 @@ class Board {
     }
 
     /**
-     * Returns an array containing available moves for the current state
+     * Returns an array of available moves
      * @returns {array}
      */
     getAvailableMoves() {

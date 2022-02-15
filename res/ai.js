@@ -101,6 +101,18 @@ class Ai {
             return best;
         }
     }
+
+    /**
+     * Select a Random Starting Position
+     * @returns {number}
+     */
+    randomStart() {
+        // Preferred Starting Positions
+        const moves = [0, 2, 4, 6, 8];
+
+        // Random Pick
+        return moves[Math.floor(Math.random() * moves.length)];
+    }
 }
 
 export default Ai;

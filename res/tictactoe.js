@@ -48,10 +48,12 @@ class TicTacToe {
          * Event Listeners *
         \* * * * * * * * * */
 
+        // New Game X/O Selection
         document.querySelectorAll('#modal_start a').forEach(a => {
             a.addEventListener('click', this.newGame.bind(this), {once:true});
         });
 
+        // Play Again Button
         document.getElementById('play_again').addEventListener('click', (e) => {
             location.reload();
         });
@@ -73,34 +75,50 @@ class TicTacToe {
             this.board.plays++;
             this.lock();
 
+            // Add Move to Board
             const index = parseInt(e.target.id.replace('box_', ''));
             this.board.insert(this.user.symbol, index);
 
+            // Display Mark
             e.target.innerHTML = this.mark(this.user.symbol);
             e.target.classList.add('played');
 
+            // Check Game Status
             const result = this.board.checkBoard();
 
+            // Handle Result
             if (result) {
+                // Game Over
                 this.gameOver(result);
             } else {
+                // AI's Turn
                 this.aiMove();
             }
         }
     }
 
     /**
-     * Random Start instead of calling Ai.getBestMove() on Empty Board
+     * AI Random Starting Position
      */
     aiGo() {
         this.board.plays++;
-        const moves = [0, 2, 4, 6, 8];
-        const move = moves[Math.floor(Math.random() * moves.length)];
+
+        // Random Start
+        const move = this.ai.randomStart();
+
+        // Add Move to Board
         this.board.insert(this.ai.symbol, move);
 
+        // Display Mark
         const div = document.getElementById('box_' + move.toString());
         div.innerHTML = this.mark(this.ai.symbol);
         div.classList.add('played');
+
+        // Clone <div> and replace itself to stop event listeners
+        const clone = div.cloneNode(true);
+        div.parentNode.replaceChild(clone, div);
+
+        // User's Turn
         this.userGo();
     }
 
@@ -109,22 +127,37 @@ class TicTacToe {
      */
     aiMove() {
         this.board.plays++;
-        const move = this.ai.getBestMove(this.board, (this.ai.symbol === 'x'));
-        this.board.insert(this.ai.symbol, move);
-        const div  = document.getElementById('box_' + move.toString());
-        div.removeEventListener('click', this.userMove.bind(this));
 
+        // Use AI to calculate best move
+        const move = this.ai.getBestMove(this.board, (this.ai.symbol === 'x'));
+
+        // Add new move to Board
+        this.board.insert(this.ai.symbol, move);
+
+        // Get Container <div>
+        const div = document.getElementById('box_' + move.toString());
+
+        // Pause for better UX
         (async () => {
             await this.sleep(500);
 
+            // Display Mark
             div.innerHTML = this.mark(this.ai.symbol);
             div.classList.add('played');
 
+            // Clone <div> and replace itself to stop event listeners
+            const clone = div.cloneNode(true);
+            div.parentNode.replaceChild(clone, div);
+
+            // Check Game Status
             const result = this.board.checkBoard();
 
+            // Handle Result
             if (result) {
+                // Game Over
                 this.gameOver(result);
             } else {
+                // User's Turn
                 this.userGo();
             }
         })();
