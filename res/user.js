@@ -31,8 +31,8 @@ class User {
         this.storage = window.localStorage;
 
         // Load History
-        if (this.storage.hasOwnProperty('stats')) {
-            const stats = JSON.parse(this.storage.getItem('stats'));
+        if (this.storage.hasOwnProperty('ttt_stats')) {
+            const stats = JSON.parse(this.storage.getItem('ttt_stats'));
             this.wins = stats.wins;
             this.loss = stats.loss;
             this.ties = stats.ties;
@@ -48,7 +48,7 @@ class User {
             loss : this.loss,
             ties : this.ties
         }
-        this.storage.setItem('stats', JSON.stringify(stats));
+        this.storage.setItem('ttt_stats', JSON.stringify(stats));
     }
 
     /**
