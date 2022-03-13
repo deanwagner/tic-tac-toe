@@ -21,8 +21,8 @@ This project was created for the [Tic Tac Toe assignment](https://www.theodinpro
 5. Function to render contents of game board
 6. Build logic to determine winner/tie
 7. Display elements for finished games
-8. (+1) Create AI that chooses random moves
-9. (+1) Create intelligent AI with Minimax Algorithm
+8. (+) Create AI that chooses random moves
+9. (+) Create intelligent AI with Minimax Algorithm
 
 ### Scope Creep
 
